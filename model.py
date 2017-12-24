@@ -243,7 +243,7 @@ class DropoutComponent(Component):
         Component.__init__(self, {'keep_prob': keep_prob},
                            **kwargs)
         
-    # Activation functions have identical input and output shapes
+    # Identical input and output shapes
     def infer_output_shape(self, input_shape):
         return input_shape
     def infer_input_shape(self, output_shape):
