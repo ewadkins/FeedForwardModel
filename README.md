@@ -53,7 +53,7 @@ model = FeedForwardModel([28, 28], 10, [Convolutional2DComponent(5, num_kernels=
 x, out = model.build()
 ~~~~
 ### VGG16 for ImageNet
-Here is an implementation of the VGG16 model for ImageNet classification:
+Here is an implementation of the VGG16 model for the ImageNet classification task -- classifying images of size 224x224x3 into 1000 categories:
 ~~~
 model = FeedForwardModel([224, 224, 3], 1000, [Conv2DComponent(3, num_kernels=64),
                                                ActivationComponent(tf.nn.relu),
