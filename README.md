@@ -52,3 +52,40 @@ model = FeedForwardModel([28, 28], 10, [Convolutional2DComponent(5, num_kernels=
                                         FullyConnectedComponent()])
 x, out = model.build()
 ~~~~
+### VGG16 for ImageNet
+Here is an implementation of the VGG16 model for ImageNet classification:
+~~~
+model = FeedForwardModel([224, 224, 3], 1000, [Conv2DComponent(3, num_kernels=64),
+                                               ActivationComponent(tf.nn.relu),
+                                               Conv2DComponent(3, num_kernels=64),
+                                               ActivationComponent(tf.nn.relu),
+                                               MaxPool2DComponent(2),
+                                               Conv2DComponent(3, num_kernels=128),
+                                               ActivationComponent(tf.nn.relu),
+                                               Conv2DComponent(3, num_kernels=128),
+                                               ActivationComponent(tf.nn.relu),
+                                               MaxPool2DComponent(2),
+                                               Conv2DComponent(3, num_kernels=256),
+                                               ActivationComponent(tf.nn.relu),
+                                               Conv2DComponent(3, num_kernels=256),
+                                               ActivationComponent(tf.nn.relu),
+                                               MaxPool2DComponent(2),
+                                               Conv2DComponent(3, num_kernels=512),
+                                               ActivationComponent(tf.nn.relu),
+                                               Conv2DComponent(3, num_kernels=512),
+                                               ActivationComponent(tf.nn.relu),
+                                               MaxPool2DComponent(2),
+                                               Conv2DComponent(3, num_kernels=512),
+                                               ActivationComponent(tf.nn.relu),
+                                               Conv2DComponent(3, num_kernels=512),
+                                               ActivationComponent(tf.nn.relu),
+                                               MaxPool2DComponent(2),
+                                               FullyConnectedComponent(4096),
+                                               ActivationComponent(tf.nn.relu),
+                                               FullyConnectedComponent(4096),
+                                               ActivationComponent(tf.nn.relu),
+                                               FullyConnectedComponent(4096),
+                                               ActivationComponent(tf.nn.relu),
+                                               FullyConnectedComponent()])
+x, out = model.build()
+~~~
