@@ -84,7 +84,7 @@ model = FeedForwardModel([224, 224, 3], 1000, [Conv2DComponent(3, num_kernels=64
                                                ActivationComponent(tf.nn.relu),
                                                FullyConnectedComponent(4096),
                                                ActivationComponent(tf.nn.relu),
-                                               FullyConnectedComponent(4096),
+                                               FullyConnectedComponent(1000),
                                                ActivationComponent(tf.nn.relu),
                                                FullyConnectedComponent()])
 x, out = model.build()
