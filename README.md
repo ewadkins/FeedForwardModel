@@ -28,30 +28,19 @@ x, out = model.build()
 The model used in this example:
 ~~~~
 ...
-model = FeedForwardModel([28, 28], 10, [Convolutional2DComponent(5, num_kernels=20),
+model = FeedForwardModel([28, 28], 10, [Conv2DComponent(5, num_kernels=20, stride=2),
                                         ActivationComponent(tf.nn.relu),
-                                        DropoutComponent(0.95),
+                                        Conv2DComponent(4, num_kernels=10),
+                                        ActivationComponent(tf.nn.relu),
+                                        Conv2DComponent(3, num_kernels=5),
+                                        ActivationComponent(tf.nn.relu),
+                                        DropoutComponent(0.98),
                                         FullyConnectedComponent()])
 x, out = model.build()
 ...
 ~~~~
 
 ## Not convinced yet?
-Below shows how easy it is to make an unnecessarily complicated network. This example creates a network with three convolutional+activation layers (each with different configurations that affect output shape), followed by a normalization layer, a dropout layer, and finally a fully connected layer. All of this is handled by the library, without you having to specify anything other than the most basic hyperparameters or deal with the reshaping of inputs.
-~~~~
-
-model = FeedForwardModel([28, 28], 10, [Convolutional2DComponent(5, num_kernels=20, stride=2),
-                                        ActivationComponent(tf.nn.relu),
-                                        Convolutional2DComponent(4, num_kernels=10, padding='VALID'),
-                                        ActivationComponent(tf.nn.tanh),
-                                        Convolutional2DComponent(3, num_kernels=5),
-                                        CustomComponent(tf.nn.local_response_normalization,
-                                                        depth_radius=5, bias=1.0,
-                                                        alpha=1e-4, beta=0.75),
-                                        DropoutComponent(0.95),
-                                        FullyConnectedComponent()])
-x, out = model.build()
-~~~~
 ### VGG16 for ImageNet
 Here is an implementation of the VGG16 model for the ImageNet classification task -- classifying images of size 224x224x3 into 1000 categories:
 ~~~
