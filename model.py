@@ -69,7 +69,7 @@ class Model(object):
                 if self.components[i].output_shape:
                     inferred_output_indices.add(i)
                                     
-        # Explore each dependency tree for reccurent dependencies + inference check on output sizes
+        # Explore each dependency tree for recurrent dependencies + inference check on output sizes
         # DFS expansion ensures that if an issue is found, it's found at the root of the problem
         component_index_map = {self.components[i]: i for i in range(len(self.components))}
         visited = set()
