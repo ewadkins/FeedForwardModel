@@ -24,7 +24,7 @@ learning_rate = 0.1
 
 ### Other variables used in training/evaluation
 y = tf.placeholder(tf.int64, [None])
-loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(out, y))
+loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(logits=out, labels=y))
 train_op = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
 accuracy = tf.reduce_mean(tf.cast(tf.nn.in_top_k(out, y, 1), tf.float32))
 
