@@ -122,7 +122,6 @@ class RecurrentModel(Model):
         Model.__init__(self, input_shape, output_shape, components)
     
     def build(self):
-        #raise NotImplementedError('Recurrent model building is not yet implemented')
         x = tf.placeholder(tf.float32, [None] + self.input_shape)
         out = x
         recurrent_inputs = {comp.name: tf.placeholder(tf.float32, [None] + comp.output_shape) \
@@ -136,8 +135,6 @@ class RecurrentModel(Model):
             out = component.apply(out)
             if component in self.recurrent_inputs:
                 recurrent_outputs[component.name] = out
-        print recurrent_inputs
-        print recurrent_outputs
         return x, out, recurrent_inputs, recurrent_outputs
     
 
