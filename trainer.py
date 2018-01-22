@@ -197,7 +197,7 @@ class SupervisedTrainer(object):
             g = tf.Graph()
             with g.as_default():
                 with tf.device('/gpu:0'):
-                    test = tf.mul(tf.constant(1.0), tf.constant(1.0))
+                    test = tf.multiply(tf.constant(1.0), tf.constant(1.0))
             with tf.Session(graph=g) as sess:
                 print (sess.run(test))
         except tf.errors.InvalidArgumentError:
