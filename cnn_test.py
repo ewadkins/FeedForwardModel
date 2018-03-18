@@ -26,7 +26,6 @@ print
 learning_rate = 0.01
 
 ### Other variables used in training/evaluation
-<<<<<<< HEAD
 loss_fn = lambda out, y: tf.reduce_mean(
                             tf.nn.sparse_softmax_cross_entropy_with_logits(logits=out, labels=y))
 optimizer_fn = lambda loss: tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
