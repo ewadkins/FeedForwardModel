@@ -60,6 +60,6 @@ trainer.train(training_data,
               loss_fn=loss_fn,
               optimizer_fn=optimizer_fn,
               accuracy_fn=accuracy_fn,
-              batch_size=100, # trains in batches of 100 training data points
-              validation_set_size=10000, # Evaluate on all 10000 validation data points
-              validation_interval=200) # Evaluates validation data every 300 batches
+              batch_size=100, # Trains in batches of 100 training data points
+              validation_set_size=10000, # Evaluates on all 10000 validation data points
+              validation_interval=200) # Evaluates validation data every 200 batches
