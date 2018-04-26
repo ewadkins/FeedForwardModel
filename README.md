@@ -1,3 +1,5 @@
+Note: recently included support for **recurrent neural networks** as well.
+
 # FeedForwardModel
 A library that enables incredibly **simple creation of feed forward neural models** in TensorFlow.
 
